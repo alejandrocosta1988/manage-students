@@ -12,4 +12,4 @@ Manage Students é um software de gerenciamento de estudantes, como pode ser ent
 
 ### `CourseSession`
 
-`CourseSession` armazena informação sobre um curso ofertado. Quando uma instância da classe é criada, o nome do departamento deve ser fornecido, juntamente com o número do curso.
+`CourseSession` armazena informação sobre um curso ofertado (nome do departamento, número do curso, número de estudantes matriculados no curso ofertado). Quando uma instância da classe é criada, o nome do departamento deve ser fornecido, juntamente com o número do curso.
