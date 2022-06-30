@@ -5,9 +5,13 @@ import studentinfo.Student;
 
 public class CourseSessionTest extends TestCase {
 
+	private CourseSession session;
+	
+	public void setUp() {
+		session = new CourseSession("ENGL", "101");
+	}
+	
 	public void testCreate() {
-		
-		CourseSession session = new CourseSession("ENGL", "101");
 		
 		assertEquals("ENGL", session.getDepartment());
 		assertEquals("101", session.getNumber());
@@ -16,8 +20,6 @@ public class CourseSessionTest extends TestCase {
 	}
 	
 	public void testEnrollStudents() {
-		
-		CourseSession session = new CourseSession("ENGL", "101");
 		
 		Student student1 = new Student("Alg Mei");
 		Student student2 = new Student("Kim Jones");
