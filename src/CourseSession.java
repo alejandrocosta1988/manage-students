@@ -1,10 +1,11 @@
+import java.util.ArrayList;
 
 public class CourseSession {
 
 	private String department;
 	private String number;
 	
-	private int numberOfStudents = 0;
+	private ArrayList<Student> students = new ArrayList<>();
 	
 	public CourseSession(String department, String number) {
 		this.department = department;
@@ -20,11 +21,15 @@ public class CourseSession {
 	}
 
 	public int getNumberOfStudents() {
-		return numberOfStudents;
+		return students.size();
 	}
 	
 	public void enroll(Student student) {
-		numberOfStudents += 1;
+		students.add(student);
+	}
+	
+	public ArrayList<Student> getAllStudents() {
+		return students;
 	}
 	
 }
