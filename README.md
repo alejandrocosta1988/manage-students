@@ -12,4 +12,4 @@ Manage Students is a software to manage students, as could naturally be understo
 
 ### `CourseSession`
 
-`CourseSession` holds information on a course session (department name, course number, number of students enrolled in the course session). When an instance of this class is created, the name of the department is provided along with the number of the course.
+`CourseSession` holds information on a course session (department name, course number, students enrolled in the course session). When an instance of this class is created, the name of the department is provided along with the number of the course.
