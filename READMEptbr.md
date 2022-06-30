@@ -9,3 +9,7 @@ Manage Students é um software de gerenciamento de estudantes, como pode ser ent
 ### `Student`
 
 `Student` armazena informação de um estudante. Uma instância de `Student` recebe o nome do estudante através do construtor.
+
+### `CourseSession`
+
+`CourseSession` armazena informação sobre um curso ofertado. Quando uma instância da classe é criada, o nome do departamento deve ser fornecido, juntamente com o número do curso.

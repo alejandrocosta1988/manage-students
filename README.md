@@ -9,3 +9,7 @@ Manage Students is a software to manage students, as could naturally be understo
 ### `Student`
 
 `Student` holds information on a student. A `Student` instance receives the student name from the constructor.
+
+### `CourseSession`
+
+`CourseSession` holds information on a course session. When an instance of this class is created, the name of the department is provided along with the number of the course.
