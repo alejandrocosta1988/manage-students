@@ -8,6 +8,7 @@ public class CourseSessionTest extends TestCase {
 		
 		assertEquals("ENGL", session.getDepartment());
 		assertEquals("101", session.getNumber());
+		assertEquals(0, session.getNumberOfStudents());
 		
 	}
 	
