@@ -1,3 +1,4 @@
+package courseinfo;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
