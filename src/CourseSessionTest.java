@@ -1,3 +1,4 @@
+import java.time.LocalDate;
 import java.util.ArrayList;
 
 import junit.framework.TestCase;
@@ -6,9 +7,11 @@ import studentinfo.Student;
 public class CourseSessionTest extends TestCase {
 
 	private CourseSession session;
+	private LocalDate startDate;
 	
 	public void setUp() {
-		session = new CourseSession("ENGL", "101");
+		startDate = LocalDate.of(2022, 8, 15);
+		session = new CourseSession("ENGL", "101", startDate);
 	}
 	
 	public void testCreate() {
@@ -16,6 +19,7 @@ public class CourseSessionTest extends TestCase {
 		assertEquals("ENGL", session.getDepartment());
 		assertEquals("101", session.getNumber());
 		assertEquals(0, session.getNumberOfStudents());
+		assertEquals(startDate, session.getStartDate());
 		
 	}
 	
@@ -32,6 +36,13 @@ public class CourseSessionTest extends TestCase {
 		assertEquals(2, session.getNumberOfStudents());
 		assertEquals(student1, session.get(0));
 		assertEquals(student2, session.get(1));
+		
+	}
+	
+	public void testCourseDates() {
+		
+		LocalDate sixteenWeeksOut = startDate.plusWeeks(16L);
+		assertEquals(sixteenWeeksOut, session.getEndDate());
 		
 	}
 	
