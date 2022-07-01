@@ -4,12 +4,20 @@ Manage Students é um projeto Java desenvolvido para praticar minhas habilidades
 
 Manage Students é um software de gerenciamento de estudantes, como pode ser entendido a partir do próprio nome do projeto. Informações sobre a estrutura de classes e novas funcionalidades serão fornecidas conforme novas estórias de usuários forem selecionadas para serem trabalhadas.
 
-## Classes
+## Pacotes
 
-### `Student`
+### `studentinfo`
+
+O pacote `studentinfo` contém código relacionado com os estudantes.
+
+#### Classes
 
 `Student` armazena informação de um estudante. Uma instância de `Student` recebe o nome do estudante através do construtor.
 
-### `CourseSession`
+### `courseinfo`
 
-`CourseSession` armazena informação sobre um curso ofertado (nome do departamento, número do curso, estudantes matriculados no curso ofertado). Quando uma instância da classe é criada, o nome do departamento deve ser fornecido, juntamente com o número do curso.
+O pacote `courseinfo` contém código relacionado com os cursos ofertados.
+
+`CourseSession` armazena informação sobre um curso ofertado (nome do departamento, número do curso, estudantes matriculados no curso ofertado e data inicial). Quando uma instância da classe é criada, o nome do departamento deve ser fornecido, juntamente com o número do curso e a data de início do curso.
+
+Essa classe inclui métodos para retornar estudantes específicos que estão matriculados no curso, bem como para retornar a data de final do curso.
