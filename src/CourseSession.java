@@ -29,9 +29,9 @@ public class CourseSession {
 	public void enroll(Student student) {
 		students.add(student);
 	}
-	
-	public ArrayList<Student> getAllStudents() {
-		return students;
+
+	public Student get(int index) {
+		return students.get(index);
 	}
 	
 }
