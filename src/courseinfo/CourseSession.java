@@ -4,6 +4,12 @@ import java.util.ArrayList;
 
 import studentinfo.Student;
 
+/**
+ * Represents a course session offered in a single-semester by an university.
+ * 
+ * @author Alejandro Costa
+ *
+ */
 public class CourseSession {
 
 	private String department;
@@ -13,6 +19,13 @@ public class CourseSession {
 	
 	private LocalDate startDate;
 	
+	/**
+	 * Constructs a CourseSession holding information on the department identification, course number, and a specific initial date for the course
+	 * 
+	 * @param department the identification of the department responsible for the CourseSession
+	 * @param number the number identification of the course
+	 * @param startDate the date on which the course begins
+	 */
 	public CourseSession(String department, String number, LocalDate startDate) {
 		this.department = department;
 		this.number = number;
