@@ -1,9 +1,10 @@
-package courseinfo;
+package sis.report;
 
 import java.time.LocalDate;
 
 import junit.framework.TestCase;
-import studentinfo.Student;
+import sis.courseinfo.CourseSession;
+import sis.studentinfo.Student;
 
 public class RosterReporterTest extends TestCase {
 	

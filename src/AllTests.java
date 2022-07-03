@@ -3,7 +3,7 @@ import org.junit.runners.Suite;
 import org.junit.runners.Suite.SuiteClasses;
 
 @RunWith(Suite.class)
-@SuiteClasses({ courseinfo.CourseSessionTest.class, studentinfo.StudentTest.class, courseinfo.RosterReporterTest.class })
+@SuiteClasses({ sis.courseinfo.CourseSessionTest.class, sis.studentinfo.StudentTest.class, sis.report.RosterReporterTest.class })
 public class AllTests {
 
 }

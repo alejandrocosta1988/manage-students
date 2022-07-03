@@ -1,8 +1,8 @@
-package courseinfo;
+package sis.courseinfo;
 import java.time.LocalDate;
 
 import junit.framework.TestCase;
-import studentinfo.Student;
+import sis.studentinfo.Student;
 
 public class CourseSessionTest extends TestCase {
 

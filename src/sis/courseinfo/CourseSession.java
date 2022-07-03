@@ -1,13 +1,13 @@
-package courseinfo;
+package sis.courseinfo;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
-import studentinfo.Student;
+import sis.studentinfo.Student;
 
 /**
  * Represents a course session offered in a single-semester by an university.
  * 
- * @author Alejandro Costa
+ * @author Alejandro Costa 
  *
  */
 public class CourseSession {
