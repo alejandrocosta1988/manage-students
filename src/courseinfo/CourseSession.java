@@ -69,13 +69,10 @@ public class CourseSession {
 		StringBuilder buffer = new StringBuilder();
 		buffer.append(ROSTER_REPORT_HEADER);
 		
-		Student student = this.get(0);
-		buffer.append(student.getName());
-		buffer.append(CourseSession.NEWLINE);
-		
-		student = this.get(1);
-		buffer.append(student.getName());
-		buffer.append(CourseSession.NEWLINE);
+		for (Student student : this.students) {
+			buffer.append(student.getName());
+			buffer.append(CourseSession.NEWLINE);
+		}
 		
 		buffer.append(ROSTER_REPORT_FOOTER + this.getNumberOfStudents() + CourseSession.NEWLINE);
 		
