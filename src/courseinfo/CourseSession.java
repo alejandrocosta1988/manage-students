@@ -65,17 +65,19 @@ public class CourseSession {
 	}
 
 	public String getRosterReport() {
-		
 		StringBuilder buffer = new StringBuilder();
 		buffer.append(ROSTER_REPORT_HEADER);
-		
+		buffer.append(writeNameOfStudentsInBuffer());
+		buffer.append(ROSTER_REPORT_FOOTER + this.getNumberOfStudents() + CourseSession.NEWLINE);
+		return buffer.toString();
+	}
+	
+	private String writeNameOfStudentsInBuffer() {
+		StringBuilder buffer = new StringBuilder();
 		for (Student student : this.students) {
 			buffer.append(student.getName());
 			buffer.append(CourseSession.NEWLINE);
 		}
-		
-		buffer.append(ROSTER_REPORT_FOOTER + this.getNumberOfStudents() + CourseSession.NEWLINE);
-		
 		return buffer.toString();
 	}
 	
