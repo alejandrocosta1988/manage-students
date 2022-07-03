@@ -16,19 +16,25 @@ public class RosterReporter {
 	
 	public String getReport() {
 		StringBuilder buffer = new StringBuilder();
-		buffer.append(ROSTER_REPORT_HEADER);
-		buffer.append(writeNameOfStudentsInBuffer());
-		buffer.append(ROSTER_REPORT_FOOTER + session.getNumberOfStudents() + NEWLINE);
+		writeHeader(buffer);
+		writeBody(buffer);
+		writeFooter(buffer);
 		return buffer.toString();
 	}
 	
-	private String writeNameOfStudentsInBuffer() {
-		StringBuilder buffer = new StringBuilder();
+	private void writeHeader(StringBuilder buffer) {
+		buffer.append(ROSTER_REPORT_HEADER);
+	}
+	
+	private void writeBody(StringBuilder buffer) {
 		for (Student student : session.getAllStudents()) {
 			buffer.append(student.getName());
 			buffer.append(NEWLINE);
 		}
-		return buffer.toString();
+	}
+	
+	private void writeFooter(StringBuilder buffer) {
+		buffer.append(ROSTER_REPORT_FOOTER + session.getNumberOfStudents() + NEWLINE);
 	}
 	
 }
