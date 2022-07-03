@@ -55,9 +55,10 @@ public class CourseSessionTest extends TestCase {
 		
 		assertEquals(
 				CourseSession.ROSTER_REPORT_HEADER +
-				"Aba Ada\nRugh Bull\n" +
+				"Aba Ada" + CourseSession.NEWLINE +
+				"Rugh Bull" + CourseSession.NEWLINE +
 				CourseSession.ROSTER_REPORT_FOOTER +
-				"2\n", 
+				"2" + CourseSession.NEWLINE, 
 				rosterReport);
 		
 	}

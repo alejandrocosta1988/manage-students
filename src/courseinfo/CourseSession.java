@@ -12,8 +12,9 @@ import studentinfo.Student;
  */
 public class CourseSession {
 	
-	static final String ROSTER_REPORT_HEADER = "List of students enrolled in this course\n";
+	static final String ROSTER_REPORT_HEADER = "List of students enrolled in this course" + CourseSession.NEWLINE;
 	static final String ROSTER_REPORT_FOOTER = "Number of students enrolled in this course: ";
+	static final String NEWLINE = System.getProperty("line.separator");
 
 	private String department;
 	private String number;
@@ -70,13 +71,13 @@ public class CourseSession {
 		
 		Student student = this.get(0);
 		buffer.append(student.getName());
-		buffer.append("\n");
+		buffer.append(CourseSession.NEWLINE);
 		
 		student = this.get(1);
 		buffer.append(student.getName());
-		buffer.append("\n");
+		buffer.append(CourseSession.NEWLINE);
 		
-		buffer.append(ROSTER_REPORT_FOOTER + this.getNumberOfStudents() + "\n");
+		buffer.append(ROSTER_REPORT_FOOTER + this.getNumberOfStudents() + CourseSession.NEWLINE);
 		
 		return buffer.toString();
 	}
