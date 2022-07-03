@@ -46,31 +46,4 @@ public class CourseSessionTest extends TestCase {
 		
 	}
 	
-	public void testRosterReport() {
-		
-		session.enroll(new Student("Aba Ada"));
-		session.enroll(new Student("Rugh Bull"));
-		
-		String rosterReport = session.getRosterReport();
-		
-		assertEquals(
-				CourseSession.ROSTER_REPORT_HEADER +
-				"Aba Ada" + CourseSession.NEWLINE +
-				"Rugh Bull" + CourseSession.NEWLINE +
-				CourseSession.ROSTER_REPORT_FOOTER +
-				"2" + CourseSession.NEWLINE, 
-				rosterReport);
-		
-		session.enroll(new Student("Charles Xavier"));
-		assertEquals(
-				CourseSession.ROSTER_REPORT_HEADER +
-				"Aba Ada" + CourseSession.NEWLINE +
-				"Rugh Bull" + CourseSession.NEWLINE +
-				"Charles Xavier" + CourseSession.NEWLINE +
-				CourseSession.ROSTER_REPORT_FOOTER +
-				"3" + CourseSession.NEWLINE, 
-				session.getRosterReport());
-		
-	}
-	
 }

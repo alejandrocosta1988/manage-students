@@ -12,10 +12,6 @@ import studentinfo.Student;
  */
 public class CourseSession {
 	
-	static final String ROSTER_REPORT_HEADER = "List of students enrolled in this course" + CourseSession.NEWLINE;
-	static final String ROSTER_REPORT_FOOTER = "Number of students enrolled in this course: ";
-	static final String NEWLINE = System.getProperty("line.separator");
-
 	private String department;
 	private String number;
 	
@@ -64,21 +60,8 @@ public class CourseSession {
 		return startDate;
 	}
 
-	public String getRosterReport() {
-		StringBuilder buffer = new StringBuilder();
-		buffer.append(ROSTER_REPORT_HEADER);
-		buffer.append(writeNameOfStudentsInBuffer());
-		buffer.append(ROSTER_REPORT_FOOTER + this.getNumberOfStudents() + CourseSession.NEWLINE);
-		return buffer.toString();
-	}
-	
-	private String writeNameOfStudentsInBuffer() {
-		StringBuilder buffer = new StringBuilder();
-		for (Student student : this.students) {
-			buffer.append(student.getName());
-			buffer.append(CourseSession.NEWLINE);
-		}
-		return buffer.toString();
+	public ArrayList<Student> getAllStudents() {
+		return this.students;
 	}
 	
 }
