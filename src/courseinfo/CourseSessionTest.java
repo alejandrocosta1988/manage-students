@@ -46,4 +46,20 @@ public class CourseSessionTest extends TestCase {
 		
 	}
 	
+	public void testRosterReport() {
+		
+		session.enroll(new Student("Aba Ada"));
+		session.enroll(new Student("Rugh Bull"));
+		
+		String rosterReport = session.getRosterReport();
+		
+		assertEquals(
+				CourseSession.ROSTER_REPORT_HEADER +
+				"Aba Ada\nRugh Bull\n" +
+				CourseSession.ROSTER_REPORT_FOOTER +
+				"2\n", 
+				rosterReport);
+		
+	}
+	
 }

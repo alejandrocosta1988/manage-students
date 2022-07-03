@@ -11,6 +11,9 @@ import studentinfo.Student;
  *
  */
 public class CourseSession {
+	
+	static final String ROSTER_REPORT_HEADER = "List of students enrolled in this course\n";
+	static final String ROSTER_REPORT_FOOTER = "Number of students enrolled in this course: ";
 
 	private String department;
 	private String number;
@@ -58,6 +61,24 @@ public class CourseSession {
 
 	public LocalDate getStartDate() {
 		return startDate;
+	}
+
+	public String getRosterReport() {
+		
+		StringBuilder buffer = new StringBuilder();
+		buffer.append(ROSTER_REPORT_HEADER);
+		
+		Student student = this.get(0);
+		buffer.append(student.getName());
+		buffer.append("\n");
+		
+		student = this.get(1);
+		buffer.append(student.getName());
+		buffer.append("\n");
+		
+		buffer.append(ROSTER_REPORT_FOOTER + this.getNumberOfStudents() + "\n");
+		
+		return buffer.toString();
 	}
 	
 }
