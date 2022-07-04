@@ -29,10 +29,14 @@ public class CourseSession {
 	 * @param startDate the date on which the course begins
 	 */
 	public CourseSession(String department, String number, LocalDate startDate) {
-		CourseSession.count = CourseSession.count + 1;
 		this.department = department;
 		this.number = number;
 		this.startDate = startDate;
+		CourseSession.incrementCount();
+	}
+	
+	private static void incrementCount() {
+		count = count + 1;
 	}
 
 	public static int getCount() {
