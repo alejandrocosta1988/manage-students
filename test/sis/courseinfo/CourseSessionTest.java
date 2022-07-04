@@ -11,7 +11,11 @@ public class CourseSessionTest extends TestCase {
 	
 	public void setUp() {
 		startDate = LocalDate.of(2022, 8, 15);
-		session = new CourseSession("ENGL", "101", startDate);
+		session = createCourseSession();
+	}
+	
+	private CourseSession createCourseSession() {
+		return new CourseSession("ENGL", "101", startDate);
 	}
 	
 	public void testCreate() {
@@ -43,6 +47,15 @@ public class CourseSessionTest extends TestCase {
 		
 		LocalDate sixteenWeeksOut = startDate.plusWeeks(16L);
 		assertEquals(sixteenWeeksOut, session.getEndDate());
+		
+	}
+	
+	public void testCount() {
+		CourseSession.count = 0;
+		createCourseSession();
+		assertEquals(1, CourseSession.count);
+		createCourseSession();
+		assertEquals(2, CourseSession.count);
 		
 	}
 	
