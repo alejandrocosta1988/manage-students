@@ -12,7 +12,7 @@ import sis.studentinfo.Student;
  */
 public class CourseSession {
 	
-	static int count;
+	private static int count;
 	
 	private String department;
 	private String number;
@@ -35,6 +35,14 @@ public class CourseSession {
 		this.startDate = startDate;
 	}
 
+	public static int getCount() {
+		return count;
+	}
+	
+	public static void resetCount() {
+		count = 0;
+	}
+	
 	public String getDepartment() {
 		return department;
 	}
