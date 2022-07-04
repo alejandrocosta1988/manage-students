@@ -6,6 +6,8 @@ import junit.framework.TestCase;
 import sis.courseinfo.CourseSession;
 import sis.studentinfo.Student;
 
+import static sis.report.Report.NEWLINE;
+
 public class RosterReporterTest extends TestCase {
 	
 	public void testRosterReport() {
@@ -19,11 +21,11 @@ public class RosterReporterTest extends TestCase {
 		
 		assertEquals(
 				RosterReporter.ROSTER_REPORT_HEADER +
-				"Cal Bins" + RosterReporter.NEWLINE +
-				"Lisa Barnes" + RosterReporter.NEWLINE +
-				"Lis Barnes" + RosterReporter.NEWLINE +
+				"Cal Bins" + NEWLINE +
+				"Lisa Barnes" + NEWLINE +
+				"Lis Barnes" + NEWLINE +
 				RosterReporter.ROSTER_REPORT_FOOTER +
-				"3" + RosterReporter.NEWLINE,
+				"3" + NEWLINE,
 				rosterReport);
 	}
 
