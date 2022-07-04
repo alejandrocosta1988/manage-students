@@ -36,7 +36,7 @@ public class CourseSession {
 	}
 	
 	private static void incrementCount() {
-		count = count + 1;
+		++count;
 	}
 
 	public static int getCount() {
