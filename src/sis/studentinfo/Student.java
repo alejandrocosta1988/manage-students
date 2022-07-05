@@ -8,7 +8,7 @@ public class Student {
 
 	public Student(String name) {
 		this.name = name;
-		this.credits = 0;
+		credits = 0;
 	}
 
 	public String getName() {
@@ -20,11 +20,11 @@ public class Student {
 	}
 
 	public Object getCredits() {
-		return this.credits;
+		return credits;
 	}
 
-	public void addCredits(int numberOfCredits) {
-		this.credits = this.credits + numberOfCredits;
+	public void addCredits(int credits) {
+		this.credits += credits;
 	}
 	
 }
