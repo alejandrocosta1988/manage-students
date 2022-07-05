@@ -35,4 +35,17 @@ public class StudentTest extends junit.framework.TestCase {
 		
 	}
 	
+	public void testInState() {
+		
+		Student student = new Student("Ada Niels");
+		assertFalse(student.isInState());
+		student.setState(Student.IN_STATE);
+		assertTrue(student.isInState());
+		student.setState("MD");
+		assertFalse(student.isInState());
+		student.setState(Student.IN_STATE.toLowerCase());
+		assertTrue(student.isInState());
+		
+	}
+	
 }
