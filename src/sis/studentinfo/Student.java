@@ -16,7 +16,7 @@ public class Student {
 	}
 
 	public boolean isFullTime() {
-		return false;
+		return credits >= 12;
 	}
 
 	public Object getCredits() {

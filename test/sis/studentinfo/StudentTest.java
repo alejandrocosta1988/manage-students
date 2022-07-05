@@ -25,9 +25,13 @@ public class StudentTest extends junit.framework.TestCase {
 		assertEquals(3, student.getCredits());
 		assertFalse(student.isFullTime());
 
-		student.addCredits(7);
-		assertEquals(10, student.getCredits());
+		student.addCredits(4);
+		assertEquals(7, student.getCredits());
 		assertFalse(student.isFullTime());
+
+		student.addCredits(5);
+		assertEquals(12, student.getCredits());
+		assertTrue("not enough credits for fulltime status", student.isFullTime());
 		
 	}
 	
