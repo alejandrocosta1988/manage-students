@@ -32,15 +32,15 @@ public class CourseSession {
 		this.department = department;
 		this.number = number;
 		this.startDate = startDate;
-		CourseSession.incrementCount();
-	}
-	
-	private static void incrementCount() {
-		++count;
 	}
 	
 	public static CourseSession create(String department, String number, LocalDate startDate) {
+		incrementCount();
 		return new CourseSession(department, number, startDate);
+	}
+
+	private static void incrementCount() {
+		++count;
 	}
 
 	public static int getCount() {
