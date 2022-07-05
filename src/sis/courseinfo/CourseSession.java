@@ -28,7 +28,7 @@ public class CourseSession {
 	 * @param number the number identification of the course
 	 * @param startDate the date on which the course begins
 	 */
-	public CourseSession(String department, String number, LocalDate startDate) {
+	private CourseSession(String department, String number, LocalDate startDate) {
 		this.department = department;
 		this.number = number;
 		this.startDate = startDate;
@@ -37,6 +37,10 @@ public class CourseSession {
 	
 	private static void incrementCount() {
 		++count;
+	}
+	
+	public static CourseSession create(String department, String number, LocalDate startDate) {
+		return new CourseSession(department, number, startDate);
 	}
 
 	public static int getCount() {

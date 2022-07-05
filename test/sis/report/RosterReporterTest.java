@@ -12,7 +12,7 @@ public class RosterReporterTest extends TestCase {
 	
 	public void testRosterReport() {
 		
-		CourseSession session = new CourseSession("ENGL", "101", LocalDate.of(2022, 7, 15));
+		CourseSession session = CourseSession.create("ENGL", "101", LocalDate.of(2022, 7, 15));
 		session.enroll(new Student("Cal Bins"));
 		session.enroll(new Student("Lisa Barnes"));
 		session.enroll(new Student("Lis Barnes"));
