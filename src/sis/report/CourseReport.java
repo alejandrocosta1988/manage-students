@@ -1,10 +1,11 @@
 package sis.report;
 
+import static sis.report.Report.NEWLINE;
+
 import java.util.ArrayList;
+import java.util.Collections;
 
 import sis.courseinfo.CourseSession;
-
-import static sis.report.Report.NEWLINE;
 
 public class CourseReport {
 	
@@ -15,6 +16,7 @@ public class CourseReport {
 	}
 	
 	public String text() {
+		Collections.sort(sessions);
 		StringBuilder builder = new StringBuilder();
 		for (CourseSession session : sessions) {
 			builder.append(session.getDepartment() + " " + session.getNumber() + NEWLINE);

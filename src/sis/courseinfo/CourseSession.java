@@ -10,7 +10,7 @@ import sis.studentinfo.Student;
  * @author Alejandro Costa 
  *
  */
-public class CourseSession {
+public class CourseSession implements Comparable<CourseSession> {
 	
 	private static int count;
 	
@@ -88,6 +88,11 @@ public class CourseSession {
 	
 	public void setNumberOfCredits(int numberOfCredits) {
 		this.numberOfCredits = numberOfCredits;
+	}
+
+	@Override
+	public int compareTo(CourseSession that) {
+		return this.getDepartment().compareTo(that.getDepartment());
 	}
 	
 }
