@@ -2,13 +2,19 @@ package sis.studentinfo;
 
 public class StudentTest extends junit.framework.TestCase {
 
+	final String firstStudentName = "Joy Algoz";
+	final String secondStudentName = "Ada Heller";
+	
+	private Student firstStudent;
+	private Student secondStudent;
+	
+	
+	public void setUp() {
+		firstStudent = new Student(firstStudentName);
+		secondStudent = new Student(secondStudentName);
+	}
+	
 	public void testCreate() {
-		
-		final String firstStudentName = "Alejandro Costa";
-		final String secondStudentName = "Martin Fowler";
-		
-		Student firstStudent = new Student(firstStudentName);
-		Student secondStudent = new Student(secondStudentName);
 		
 		assertEquals(firstStudentName, firstStudent.getName());
 		assertEquals(secondStudentName, secondStudent.getName());
@@ -17,34 +23,32 @@ public class StudentTest extends junit.framework.TestCase {
 	
 	public void testStudentStatus() {
 		
-		Student student = new Student("Alba");
-		assertEquals(0, student.getCredits());
-		assertFalse(student.isFullTime());
+		assertEquals(0, firstStudent.getCredits());
+		assertFalse(firstStudent.isFullTime());
 		
-		student.addCredits(3);
-		assertEquals(3, student.getCredits());
-		assertFalse(student.isFullTime());
+		firstStudent.addCredits(3);
+		assertEquals(3, firstStudent.getCredits());
+		assertFalse(firstStudent.isFullTime());
 
-		student.addCredits(4);
-		assertEquals(7, student.getCredits());
-		assertFalse(student.isFullTime());
+		firstStudent.addCredits(4);
+		assertEquals(7, firstStudent.getCredits());
+		assertFalse(firstStudent.isFullTime());
 
-		student.addCredits(5);
-		assertEquals(Student.CREDITS_REQUIRED_FOR_FULL_TIME, student.getCredits());
-		assertTrue("not enough credits for fulltime status", student.isFullTime());
+		firstStudent.addCredits(5);
+		assertEquals(Student.CREDITS_REQUIRED_FOR_FULL_TIME, firstStudent.getCredits());
+		assertTrue("not enough credits for fulltime status", firstStudent.isFullTime());
 		
 	}
 	
 	public void testInState() {
 		
-		Student student = new Student("Ada Niels");
-		assertFalse(student.isInState());
-		student.setState(Student.IN_STATE);
-		assertTrue(student.isInState());
-		student.setState("MD");
-		assertFalse(student.isInState());
-		student.setState(Student.IN_STATE.toLowerCase());
-		assertTrue(student.isInState());
+		assertFalse(secondStudent.isInState());
+		secondStudent.setState(Student.IN_STATE);
+		assertTrue(secondStudent.isInState());
+		secondStudent.setState("MD");
+		assertFalse(secondStudent.isInState());
+		secondStudent.setState(Student.IN_STATE.toLowerCase());
+		assertTrue(secondStudent.isInState());
 		
 	}
 	
