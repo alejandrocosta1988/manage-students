@@ -70,8 +70,14 @@ public class CourseSessionTest extends TestCase {
 		CourseSession sessionB = CourseSession.create("ENGL", "101", startDate);
 		assertTrue(sessionA.compareTo(sessionB) < 0);
 		assertTrue(sessionB.compareTo(sessionA) > 0);
+		
 		CourseSession sessionC = CourseSession.create("CMSC", "101", startDate);
 		assertEquals(0, sessionA.compareTo(sessionC));
+		
+		CourseSession sessionD = CourseSession.create("CMSC", "210", startDate);
+		assertTrue(sessionC.compareTo(sessionD) < 0);
+		assertTrue(sessionD.compareTo(sessionC) > 0);
+		
 	}
 	
 }
