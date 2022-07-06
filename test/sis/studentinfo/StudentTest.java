@@ -5,6 +5,8 @@ public class StudentTest extends junit.framework.TestCase {
 	final String firstStudentName = "Joy Algoz";
 	final String secondStudentName = "Ada Heller";
 	
+	private static final double GRADE_TOLERANCE = 0.05;
+	
 	private Student firstStudent;
 	private Student secondStudent;
 	
@@ -50,6 +52,20 @@ public class StudentTest extends junit.framework.TestCase {
 		secondStudent.setState(Student.IN_STATE.toLowerCase());
 		assertTrue(secondStudent.isInState());
 		
+	}
+	
+	public void testCalculateGpa() {
+		assertEquals(0.0, firstStudent.getGpa(), GRADE_TOLERANCE);
+		firstStudent.addGrade("A");
+		assertEquals(4.0, firstStudent.getGpa(), GRADE_TOLERANCE);
+		firstStudent.addGrade("B");
+		assertEquals(3.5, firstStudent.getGpa(), GRADE_TOLERANCE);
+		firstStudent.addGrade("C");
+		assertEquals(3.0, firstStudent.getGpa(), GRADE_TOLERANCE);
+		firstStudent.addGrade("D");
+		assertEquals(2.5, firstStudent.getGpa(), GRADE_TOLERANCE);
+		firstStudent.addGrade("F");
+		assertEquals(2.0, firstStudent.getGpa(), GRADE_TOLERANCE);
 	}
 	
 }
