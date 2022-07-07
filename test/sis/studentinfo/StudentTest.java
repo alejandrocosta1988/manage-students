@@ -56,15 +56,15 @@ public class StudentTest extends junit.framework.TestCase {
 	
 	public void testCalculateGpa() {
 		assertGpa(firstStudent, 0.0);
-		firstStudent.addGrade("A");
+		firstStudent.addGrade(Student.Grade.A);
 		assertGpa(firstStudent, 4.0);
-		firstStudent.addGrade("B");
+		firstStudent.addGrade(Student.Grade.B);
 		assertGpa(firstStudent, 3.5);
-		firstStudent.addGrade("C");
+		firstStudent.addGrade(Student.Grade.C);
 		assertGpa(firstStudent, 3.0);
-		firstStudent.addGrade("D");
+		firstStudent.addGrade(Student.Grade.D);
 		assertGpa(firstStudent, 2.5);
-		firstStudent.addGrade("F");
+		firstStudent.addGrade(Student.Grade.F);
 		assertGpa(firstStudent, 2.0);
 	}
 	

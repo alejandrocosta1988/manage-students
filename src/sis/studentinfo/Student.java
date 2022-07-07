@@ -4,6 +4,8 @@ import java.util.ArrayList;
 
 public class Student {
 	
+	enum Grade { A, B, C, D, F };
+	
 	static final int CREDITS_REQUIRED_FOR_FULL_TIME = 12;
 
 	//Colorado - CO
@@ -14,7 +16,7 @@ public class Student {
 	
 	private int credits;
 	
-	private ArrayList<String> grades = new ArrayList<>();
+	private ArrayList<Grade> grades = new ArrayList<>();
 
 	public Student(String name) {
 		this.name = name;
@@ -50,21 +52,21 @@ public class Student {
 		if (grades.isEmpty()) {
 			return total;
 		}
-		for (String grade : grades) {
+		for (Grade grade : grades) {
 			total += convertToGradePoints(grade);
 		}
 		return total / grades.size();
 	}
 	
-	private double convertToGradePoints(String grade) {
-		if (grade.equals("A")) return 4.0;
-		if (grade.equals("B")) return 3.0;
-		if(grade.equals("C")) return 2.0;
-		if (grade.equals("D")) return 1.0;
+	private double convertToGradePoints(Grade grade) {
+		if (grade == Grade.A) return 4.0;
+		if (grade == Grade.B) return 3.0;
+		if(grade == Grade.C) return 2.0;
+		if (grade == Grade.D) return 1.0;
 		return 0.0;
 	}
 
-	public void addGrade(String grade) {
+	public void addGrade(Grade grade) {
 		grades.add(grade);
 	}
 	
