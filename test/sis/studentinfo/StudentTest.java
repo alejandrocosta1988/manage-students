@@ -55,17 +55,20 @@ public class StudentTest extends junit.framework.TestCase {
 	}
 	
 	public void testCalculateGpa() {
-		assertEquals(0.0, firstStudent.getGpa(), GRADE_TOLERANCE);
+		assertGpa(firstStudent, 0.0);
 		firstStudent.addGrade("A");
-		assertEquals(4.0, firstStudent.getGpa(), GRADE_TOLERANCE);
+		assertGpa(firstStudent, 4.0);
 		firstStudent.addGrade("B");
-		assertEquals(3.5, firstStudent.getGpa(), GRADE_TOLERANCE);
+		assertGpa(firstStudent, 3.5);
 		firstStudent.addGrade("C");
-		assertEquals(3.0, firstStudent.getGpa(), GRADE_TOLERANCE);
+		assertGpa(firstStudent, 3.0);
 		firstStudent.addGrade("D");
-		assertEquals(2.5, firstStudent.getGpa(), GRADE_TOLERANCE);
+		assertGpa(firstStudent, 2.5);
 		firstStudent.addGrade("F");
-		assertEquals(2.0, firstStudent.getGpa(), GRADE_TOLERANCE);
+		assertGpa(firstStudent, 2.0);
 	}
 	
+	private void assertGpa(Student student, double expectedGpa) {
+		assertEquals(expectedGpa, student.getGpa(), GRADE_TOLERANCE);
+	}
 }
