@@ -1,6 +1,7 @@
 package sis.studentinfo;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Student {
 	
@@ -18,7 +19,7 @@ public class Student {
 	
 	private GradingStrategy gradingStrategy = new RegularGradingStrategy();
 	
-	private ArrayList<Grade> grades = new ArrayList<>();
+	private List<Grade> grades = new ArrayList<>();
 
 	public Student(String name) {
 		this.name = name;
