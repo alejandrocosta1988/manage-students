@@ -16,6 +16,8 @@ public class Student {
 	
 	private int credits;
 	
+	private boolean isHonors = false;
+	
 	private ArrayList<Grade> grades = new ArrayList<>();
 
 	public Student(String name) {
@@ -59,15 +61,29 @@ public class Student {
 	}
 	
 	private double convertToGradePoints(Grade grade) {
-		if (grade == Grade.A) return 4.0;
-		if (grade == Grade.B) return 3.0;
-		if(grade == Grade.C) return 2.0;
-		if (grade == Grade.D) return 1.0;
-		return 0.0;
+		int points = basicGradePointsFor(grade);
+		if (isHonors) {
+			if (points > 0) {
+				++points;
+			}
+		}
+		return points;
+	}
+	
+	private int basicGradePointsFor(Grade grade) {
+		if (grade == Grade.A) return 4;
+		if (grade == Grade.B) return 3;
+		if(grade == Grade.C) return 2;
+		if (grade == Grade.D) return 1;
+		return 0;
 	}
 
 	public void addGrade(Grade grade) {
 		grades.add(grade);
+	}
+
+	public void setHonors() {
+		isHonors = true;
 	}
 	
 }
