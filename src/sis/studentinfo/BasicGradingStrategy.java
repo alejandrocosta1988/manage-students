@@ -1,6 +1,8 @@
 package sis.studentinfo;
 
-public class BasicGradingStrategy {
+import sis.studentinfo.Student.Grade;
+
+abstract public class BasicGradingStrategy implements GradingStrategy {
 
 	int basicGradePointsFor(Student.Grade grade) {
 		switch (grade) {
@@ -11,5 +13,8 @@ public class BasicGradingStrategy {
 			default: return 0;
 		}
 	}
+
+	@Override
+	abstract public int getGradePointsFor(Grade grade);
 	
 }

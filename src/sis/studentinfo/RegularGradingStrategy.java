@@ -1,6 +1,6 @@
 package sis.studentinfo;
 
-public class RegularGradingStrategy extends BasicGradingStrategy implements GradingStrategy {
+public class RegularGradingStrategy extends BasicGradingStrategy {
 
 	@Override
 	public int getGradePointsFor(Student.Grade grade) {
