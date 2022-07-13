@@ -75,7 +75,7 @@ public class CourseSession implements Comparable<CourseSession> {
 	}
 
 	public LocalDate getEndDate() {
-		return getStartDate().plusWeeks(16L);
+		return getStartDate().plusWeeks(getSessionLength());
 	}
 
 	protected LocalDate getStartDate() {
@@ -88,6 +88,10 @@ public class CourseSession implements Comparable<CourseSession> {
 	
 	public void setNumberOfCredits(int numberOfCredits) {
 		this.numberOfCredits = numberOfCredits;
+	}
+	
+	protected long getSessionLength() {
+		return 16L;
 	}
 
 	@Override

@@ -13,8 +13,8 @@ public class SummerCourseSession extends CourseSession {
 	}
 	
 	@Override
-	public LocalDate getEndDate() {
-		return getStartDate().plusWeeks(8L);
+	protected long getSessionLength() {
+		return 8L;
 	}
 	
 }
