@@ -11,7 +11,7 @@ public class CourseSessionTest extends SessionTest {
 		return CourseSession.create(department, number, startDate);
 	}
 	
-	public void testCourseDates() {
+	public void testCourseSessionsLastSixteenWeeks() {
 		LocalDate startDate = LocalDate.of(2003, 1, 6);
 		Session session = createSession("ENGL", "200", startDate);
 		LocalDate sixteenWeeksOut = startDate.plusWeeks(16L);

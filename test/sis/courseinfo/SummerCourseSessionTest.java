@@ -9,7 +9,7 @@ import junit.framework.TestCase;
 public class SummerCourseSessionTest extends SessionTest {
 
 	@Test
-	public void testEndDate() {
+	public void testSummerCourseSessionsLastEightWeeks() {
 		LocalDate startDate = LocalDate.of(2022, 6, 9);
 		Session session = SummerCourseSession.create("ENGL", "200", startDate);
 		LocalDate eightWeeksOut = startDate.plusWeeks(8L);
