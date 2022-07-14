@@ -10,18 +10,9 @@ import sis.studentinfo.Student;
  * @author Alejandro Costa 
  *
  */
-public class CourseSession implements Comparable<CourseSession> {
+public class CourseSession extends Session {
 	
 	private static int count;
-	
-	private String department;
-	private String number;
-	
-	private int numberOfCredits;
-	
-	private ArrayList<Student> students = new ArrayList<>();
-	
-	private LocalDate startDate;
 	
 	/**
 	 * Constructs a CourseSession holding information on the department identification, course number, and a specific initial date for the course
@@ -30,10 +21,8 @@ public class CourseSession implements Comparable<CourseSession> {
 	 * @param number the number identification of the course
 	 * @param startDate the date on which the course begins
 	 */
-	protected CourseSession(String department, String number, LocalDate startDate) {
-		this.department = department;
-		this.number = number;
-		this.startDate = startDate;
+	private CourseSession(String department, String number, LocalDate startDate) {
+		super(department, number, startDate);
 	}
 	
 	public static CourseSession create(String department, String number, LocalDate startDate) {
@@ -52,55 +41,9 @@ public class CourseSession implements Comparable<CourseSession> {
 	public static void resetCount() {
 		count = 0;
 	}
-	
-	public String getDepartment() {
-		return department;
-	}
 
-	public String getNumber() {
-		return number;
-	}
-
-	public int getNumberOfStudents() {
-		return students.size();
-	}
-	
-	public void enroll(Student student) {
-		student.addCredits(numberOfCredits);
-		students.add(student);
-	}
-
-	public Student get(int index) {
-		return students.get(index);
-	}
-
-	public LocalDate getEndDate() {
-		return getStartDate().plusWeeks(getSessionLength());
-	}
-
-	protected LocalDate getStartDate() {
-		return startDate;
-	}
-
-	public ArrayList<Student> getAllStudents() {
-		return this.students;
-	}
-	
-	public void setNumberOfCredits(int numberOfCredits) {
-		this.numberOfCredits = numberOfCredits;
-	}
-	
 	protected long getSessionLength() {
 		return 16L;
 	}
 
-	@Override
-	public int compareTo(CourseSession that) {
-		int compare = this.getDepartment().compareTo(that.getDepartment());
-		if (compare == 0) {
-			compare = this.getNumber().compareTo(that.getNumber());
-		}
-		return compare;
-	}
-	
 }
