@@ -47,7 +47,7 @@ public abstract class SessionTest extends TestCase {
 	}
 	
 	@Test
-	public void testComparable() {
+	public void testSessionsAreComparedByDepartmentNameAndThenByDepartmentNumber() {
 		final LocalDate date = LocalDate.now();
 		Session sessionA = createSession("CMSC", "101", date);
 		Session sessionB = createSession("ENGL", "101", date);
@@ -60,6 +60,12 @@ public abstract class SessionTest extends TestCase {
 		Session sessionD = createSession("CMSC", "210", date);
 		assertTrue(sessionC.compareTo(sessionD) < 0);
 		assertTrue(sessionD.compareTo(sessionC) > 0);
+	}
+	
+	@Test
+	public void testSessionsLastAtLeastOneWeek() {
+		Session session = createSession("DEPT", "101", LocalDate.now());
+		assertTrue(session.getSessionLength() > 0);
 	}
 	
 }
