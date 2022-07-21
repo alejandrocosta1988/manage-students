@@ -69,16 +69,21 @@ public class Student {
 	}
 	
 	private void setName(List<String> nameParts) {
-		if (nameParts.size() == 1) {
-			lastName = nameParts.get(0);
+		lastName = removeLast(nameParts);
+		String name = removeLast(nameParts);
+		if (nameParts.isEmpty()) {
+			firstName = name;
+		} else {
+			middleName = name;
+			firstName = removeLast(nameParts);
 		}
-		if (nameParts.size() > 1) {
-			firstName = nameParts.get(0);
-			lastName = nameParts.get(nameParts.size() - 1);
+	}
+	
+	private String removeLast(List<String> list) {
+		if (list.isEmpty()) {
+			return "";
 		}
-		if (nameParts.size() == 3) {
-			middleName = nameParts.get(1);
-		}
+		return list.remove(list.size() - 1);
 	}
 
 	public String getName() {
