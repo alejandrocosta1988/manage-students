@@ -30,6 +30,9 @@ public class Student {
 	public static final String IN_STATE = "CO";
 	
 	private String name;
+	private String firstName = "";
+	private String middleName = "";
+	private String lastName;
 	private String state = "";
 	
 	private int credits;
@@ -38,9 +41,44 @@ public class Student {
 	
 	private List<Grade> grades = new ArrayList<>();
 
-	public Student(String name) {
-		this.name = name;
+	public Student(String fullName) {
+		name = fullName;
 		credits = 0;
+		List<String> nameParts = split(fullName);
+		setName(nameParts);
+	}
+	
+	private List<String> split(String string) {
+		List<String> results = new ArrayList<>();
+		StringBuffer word = new StringBuffer();
+		int index = 0;
+		while (index < string.length()) {
+			char ch = string.charAt(index);
+			if (!Character.isWhitespace(ch))
+				word.append(ch);
+			else
+				if (word.length() > 0) {
+					results.add(word.toString());
+					word = new StringBuffer();
+				}
+			index++;
+		}
+		if (word.length() > 0)
+			results.add(word.toString());
+		return results;
+	}
+	
+	private void setName(List<String> nameParts) {
+		if (nameParts.size() == 1) {
+			lastName = nameParts.get(0);
+		}
+		if (nameParts.size() > 1) {
+			firstName = nameParts.get(0);
+			lastName = nameParts.get(nameParts.size() - 1);
+		}
+		if (nameParts.size() == 3) {
+			middleName = nameParts.get(1);
+		}
 	}
 
 	public String getName() {
@@ -51,7 +89,7 @@ public class Student {
 		return credits >= CREDITS_REQUIRED_FOR_FULL_TIME;
 	}
 
-	public Object getCredits() {
+	public int getCredits() {
 		return credits;
 	}
 
@@ -84,6 +122,18 @@ public class Student {
 	
 	public void setGradingStrategy(GradingStrategy gradingStrategy) {
 		this.gradingStrategy = gradingStrategy;
+	}
+
+	public String getFirstName() {
+		return firstName;
+	}
+
+	public String getLastName() {
+		return lastName;
+	}
+
+	public String getMiddleName() {
+		return middleName;
 	}
 	
 }

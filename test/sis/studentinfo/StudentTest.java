@@ -3,24 +3,53 @@ package sis.studentinfo;
 public class StudentTest extends junit.framework.TestCase {
 
 	final String firstStudentName = "Joy Algoz";
-	final String secondStudentName = "Ada Heller";
+	final String secondStudentName = "Heller";
+	final String thirdStudentName = "Jane Mid Goess";
 	
 	private static final double GRADE_TOLERANCE = 0.05;
 	
 	private Student firstStudent;
 	private Student secondStudent;
+	private Student thirdStudent;
 	
 	
 	public void setUp() {
 		firstStudent = new Student(firstStudentName);
 		secondStudent = new Student(secondStudentName);
+		thirdStudent = new Student(thirdStudentName);
 	}
 	
-	public void testCreate() {
-		
+	public void testAStudentHoldsItsFullName() {
 		assertEquals(firstStudentName, firstStudent.getName());
 		assertEquals(secondStudentName, secondStudent.getName());
-		
+	}
+	
+	public void testGivenAStudentGetFirstNameReturnsItsFirstName() {
+		assertEquals("Joy", firstStudent.getFirstName());
+	}
+	
+	public void testGivenAStudentWithTwoNamesGetLastNameReturnsItsLastName() {
+		assertEquals("Algoz", firstStudent.getLastName());
+	}
+	
+	public void testGivenAStudentWithTwoNamesGetMiddleNameReturnsEmptyString() {
+		assertEquals("", firstStudent.getMiddleName());
+	}
+	
+	public void testGivenAStudentWithThreeNamesGetLastNameReturnsItsLastName() {
+		assertEquals("Goess", thirdStudent.getLastName());
+	}
+	
+	public void testGivenAStudentWithThreeNamesGetMiddleNameReturnsItsMiddleName() {
+		assertEquals("Mid", thirdStudent.getMiddleName());
+	}
+	
+	public void testGivenAStudentWithASingleNameGetLastNameReturnsItsName() {
+		assertEquals("Heller", secondStudent.getLastName());
+	}
+	
+	public void testGivenAStudentWithASingleNameGetFirstNameReturnsEmptyStrings() {
+		assertEquals("", secondStudent.getFirstName());
 	}
 	
 	public void testStudentStatus() {
