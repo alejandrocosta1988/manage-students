@@ -48,20 +48,19 @@ public class Student {
 		setName(nameParts);
 	}
 	
-	private List<String> split(String string) {
+	private List<String> split(String name) {
 		List<String> results = new ArrayList<>();
 		StringBuffer word = new StringBuffer();
-		int index = 0;
-		while (index < string.length()) {
-			char ch = string.charAt(index);
-			if (!Character.isWhitespace(ch))
+		for (int index = 0; index < name.length(); index++) {
+			char ch = name.charAt(index);
+			if (!Character.isWhitespace(ch)) {
 				word.append(ch);
+			} 
 			else
 				if (word.length() > 0) {
 					results.add(word.toString());
 					word = new StringBuffer();
 				}
-			index++;
 		}
 		if (word.length() > 0)
 			results.add(word.toString());
