@@ -18,4 +18,13 @@ public class PerformanceTest extends TestCase {
 		assertEquals(85.75, performance.average(), TOLERANCE);
 	}
 	
+	public void testGivenMultipleTestsResultsSetScoresStoresThemCorrectly() {
+		Performance performance = new Performance();
+		performance.setScores(75, 72, 90, 60);
+		assertEquals(74.25, performance.average(), TOLERANCE);
+		
+		performance.setScores(100, 90);
+		assertEquals(95d, performance.average(), TOLERANCE);
+	}
+	
 }

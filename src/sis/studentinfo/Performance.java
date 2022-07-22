@@ -23,4 +23,9 @@ public class Performance {
 		return total / tests.length;
 	}
 
+	//varargs declaration
+	public void setScores(int... scores) {
+		tests = scores;
+	}
+
 }
