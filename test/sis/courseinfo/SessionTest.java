@@ -1,6 +1,8 @@
 package sis.courseinfo;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.junit.Test;
 
@@ -90,5 +92,21 @@ public abstract class SessionTest extends TestCase {
 		Student student = new Student("Agar Uri");
 		student.addCredits(Student.CREDITS_REQUIRED_FOR_FULL_TIME);
 		return student;
+	}
+	
+	@Test
+	public void testGivenASessionWithEnrolledStudentsItIsPossibleToIterateThroughTheStudents() {
+		enrollStudents(session);
+		List<Student> results = new ArrayList<>();
+		for (Student student : session) {
+			results.add(student);
+		}
+		assertEquals(session.getAllStudents(), results);
+	}
+	
+	private void enrollStudents(Session session) {
+		session.enroll(new Student("1"));
+		session.enroll(new Student("2"));
+		session.enroll(new Student("3"));
 	}
 }
