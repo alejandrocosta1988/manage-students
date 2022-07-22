@@ -2,6 +2,7 @@ package sis.studentinfo;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.StringTokenizer;
 
 public class Student {
 	
@@ -51,20 +52,10 @@ public class Student {
 	
 	private List<String> split(String name) {
 		List<String> results = new ArrayList<>();
-		StringBuffer word = new StringBuffer();
-		for (int index = 0; index < name.length(); index++) {
-			char ch = name.charAt(index);
-			if (!Character.isWhitespace(ch)) {
-				word.append(ch);
-			} 
-			else
-				if (word.length() > 0) {
-					results.add(word.toString());
-					word = new StringBuffer();
-				}
+		StringTokenizer words = new StringTokenizer(name);
+		while (words.hasMoreTokens()) {
+			results.add(words.nextToken());
 		}
-		if (word.length() > 0)
-			results.add(word.toString());
 		return results;
 	}
 	
