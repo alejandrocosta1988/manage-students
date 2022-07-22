@@ -24,7 +24,7 @@ public class Student {
 	
 	};
 	
-	static final int CREDITS_REQUIRED_FOR_FULL_TIME = 12;
+	public static final int CREDITS_REQUIRED_FOR_FULL_TIME = 12;
 
 	//Colorado - CO
 	public static final String IN_STATE = "CO";
