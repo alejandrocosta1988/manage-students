@@ -117,4 +117,11 @@ public class StudentTest extends junit.framework.TestCase {
 		student.addGrade(grade);
 		return student;
 	}
+	
+	public void testCharges() {
+		firstStudent.addCharge(500);
+		firstStudent.addCharge(200);
+		firstStudent.addCharge(399);
+		assertEquals(1099, firstStudent.totalCharges());
+	}
 }

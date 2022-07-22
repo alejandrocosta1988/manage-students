@@ -40,6 +40,7 @@ public class Student {
 	private GradingStrategy gradingStrategy = new BasicGradingStrategy();
 	
 	private List<Grade> grades = new ArrayList<>();
+	private List<Integer> charges = new ArrayList<>();
 
 	public Student(String fullName) {
 		name = fullName;
@@ -138,6 +139,18 @@ public class Student {
 
 	public String getMiddleName() {
 		return middleName;
+	}
+
+	public void addCharge(int charge) {
+		charges.add(charge);
+	}
+
+	public int totalCharges() {
+		int total = 0;
+		for (int charge : charges) {
+			total += charge;
+		}
+		return total;
 	}
 	
 }
