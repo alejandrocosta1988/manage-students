@@ -1,6 +1,7 @@
 package sis.studentinfo;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.StringTokenizer;
 
@@ -50,11 +51,10 @@ public class Student {
 		setName(nameParts);
 	}
 	
-	private List<String> split(String name) {
+	private List<String> split(String fullName) {
 		List<String> results = new ArrayList<>();
-		StringTokenizer words = new StringTokenizer(name);
-		while (words.hasMoreTokens()) {
-			results.add(words.nextToken());
+		for (String name : fullName.split(" ")) {
+			results.add(name);
 		}
 		return results;
 	}
