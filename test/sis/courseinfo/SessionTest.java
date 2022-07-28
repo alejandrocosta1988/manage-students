@@ -1,5 +1,6 @@
 package sis.courseinfo;
 
+import java.net.MalformedURLException;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
@@ -108,5 +109,21 @@ public abstract class SessionTest extends TestCase {
 		session.enroll(new Student("1"));
 		session.enroll(new Student("2"));
 		session.enroll(new Student("3"));
+	}
+	
+	@Test
+	public void testSessionUrl() throws MalformedURLException {
+		final String url = "http://course.langrsoft.com/cmsc300";
+		session.setUrl(url);
+		assertEquals(url, session.getUrl().toString());
+	}
+	
+	@Test
+	public void testInvalidSessionUrl() {
+		final String url = "httsp://course.langrsoft.com/cmsc300";
+		try {
+			session.setUrl(url);
+			fail("expected exception due to invalid protocol in URL");
+		} catch (MalformedURLException success) {}
 	}
 }
