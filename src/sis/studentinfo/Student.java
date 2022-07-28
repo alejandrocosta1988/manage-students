@@ -52,11 +52,7 @@ public class Student {
 	}
 	
 	private List<String> split(String fullName) {
-		List<String> results = new ArrayList<>();
-		for (String name : fullName.split(" ")) {
-			results.add(name);
-		}
-		return results;
+		return new ArrayList<>(Arrays.asList(fullName.split(" ")));
 	}
 	
 	private void setName(List<String> nameParts) {
