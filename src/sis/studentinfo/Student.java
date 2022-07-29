@@ -3,7 +3,6 @@ package sis.studentinfo;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.StringTokenizer;
 
 public class Student {
 	
@@ -27,6 +26,8 @@ public class Student {
 	};
 	
 	public static final int CREDITS_REQUIRED_FOR_FULL_TIME = 12;
+	static final int MAX_NAME_PARTS = 3;
+	static final String TOO_MANY_PARTS_MSG = "Student name '%s' contains more than '%d' parts.";
 
 	//Colorado - CO
 	public static final String IN_STATE = "CO";
@@ -48,9 +49,8 @@ public class Student {
 		name = fullName;
 		credits = 0;
 		List<String> nameParts = split(fullName);
-		final int maximumNumberOfNameParts = 3;
-		if (nameParts.size() > maximumNumberOfNameParts) {
-			String message = "Student name '" + fullName + "' contains more than " + maximumNumberOfNameParts + " parts.";
+		if (nameParts.size() > MAX_NAME_PARTS) {
+			String message = String.format(Student.TOO_MANY_PARTS_MSG, fullName, Student.MAX_NAME_PARTS); 
 			throw new StudentNameFormatException(message);
 		}
 		setName(nameParts);

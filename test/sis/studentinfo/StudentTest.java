@@ -5,6 +5,7 @@ public class StudentTest extends junit.framework.TestCase {
 	final String firstStudentName = "Joy Algoz";
 	final String secondStudentName = "Heller";
 	final String thirdStudentName = "Jane Mid Goess";
+	final String badName = "Mike Holmes Jack Tolerance"; 
 	
 	private static final double GRADE_TOLERANCE = 0.05;
 	
@@ -54,11 +55,11 @@ public class StudentTest extends junit.framework.TestCase {
 	
 	public void testBaddlyFormattedName() {
 		try {
-			new Student("a b c d");
+			new Student(badName);
 			fail("expected exception from 4-part name");
 		} catch (StudentNameFormatException expectedException) {
 			assertEquals(
-					"Student name 'a b c d' contains more than 3 parts.",
+					String.format(Student.TOO_MANY_PARTS_MSG, badName, Student.MAX_NAME_PARTS),
 					expectedException.getMessage());
 		}
 	}
