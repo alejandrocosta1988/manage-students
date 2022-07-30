@@ -3,6 +3,7 @@ package sis.studentinfo;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.logging.Logger;
 
 public class Student {
 	
@@ -28,7 +29,8 @@ public class Student {
 	public static final int CREDITS_REQUIRED_FOR_FULL_TIME = 12;
 	static final int MAX_NAME_PARTS = 3;
 	static final String TOO_MANY_PARTS_MSG = "Student name '%s' contains more than '%d' parts.";
-
+	final static Logger logger = Logger.getLogger(Student.class.getName());
+	
 	//Colorado - CO
 	public static final String IN_STATE = "CO";
 	
@@ -50,7 +52,8 @@ public class Student {
 		credits = 0;
 		List<String> nameParts = split(fullName);
 		if (nameParts.size() > MAX_NAME_PARTS) {
-			String message = String.format(Student.TOO_MANY_PARTS_MSG, fullName, Student.MAX_NAME_PARTS); 
+			String message = String.format(Student.TOO_MANY_PARTS_MSG, fullName, Student.MAX_NAME_PARTS);
+			Student.logger.info(message);
 			throw new StudentNameFormatException(message);
 		}
 		setName(nameParts);

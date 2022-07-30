@@ -1,5 +1,8 @@
 package sis.studentinfo;
 
+import java.util.logging.Handler;
+import java.util.logging.Logger;
+
 public class StudentTest extends junit.framework.TestCase {
 
 	final String firstStudentName = "Joy Algoz";
@@ -54,14 +57,20 @@ public class StudentTest extends junit.framework.TestCase {
 	}
 	
 	public void testBaddlyFormattedName() {
+		Handler handler = new TestHandler();
+		Student.logger.addHandler(handler);
 		try {
 			new Student(badName);
 			fail("expected exception from 4-part name");
 		} catch (StudentNameFormatException expectedException) {
-			assertEquals(
-					String.format(Student.TOO_MANY_PARTS_MSG, badName, Student.MAX_NAME_PARTS),
-					expectedException.getMessage());
+			String message = String.format(Student.TOO_MANY_PARTS_MSG, badName, Student.MAX_NAME_PARTS);
+			assertEquals(message, expectedException.getMessage());
+			assertEquals(message, ((TestHandler)handler).getMessage());
 		}
+	}
+	
+	private boolean wasLogged(String message, TestHandler handler) {
+		return message.equals(handler.getMessage());
 	}
 	
 	public void testStudentStatus() {
