@@ -39,6 +39,7 @@ public class Student {
 	private String middleName = "";
 	private String lastName;
 	private String state = "";
+	private String id;
 	
 	private int credits;
 	
@@ -148,6 +149,14 @@ public class Student {
 			total += charge;
 		}
 		return total;
+	}
+
+	public void setId(String id) {
+		this.id = id;
+	}
+
+	public String getId() {
+		return id;
 	}
 	
 }
