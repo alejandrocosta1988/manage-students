@@ -28,7 +28,7 @@ public class StudentDirectoryTest extends TestCase {
 		String id = "" + i;
 		Student student = new Student(id);
 		student.setId(id);
-		student.addCharge(i);
+		student.addCredits(i);
 		directory.add(student);
 	}
 	
