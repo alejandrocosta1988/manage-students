@@ -1,18 +1,19 @@
 package sis.report;
 
+import static sis.report.Report.NEWLINE;
+
 import java.time.LocalDate;
 
 import junit.framework.TestCase;
+import sis.courseinfo.Course;
 import sis.courseinfo.CourseSession;
 import sis.studentinfo.Student;
-
-import static sis.report.Report.NEWLINE;
 
 public class RosterReporterTest extends TestCase {
 	
 	public void testRosterReport() {
 		
-		CourseSession session = CourseSession.create("ENGL", "101", LocalDate.of(2022, 7, 15));
+		CourseSession session = CourseSession.create(new Course("ENGL", "101"), LocalDate.of(2022, 7, 15));
 		session.enroll(new Student("Cal Bins"));
 		session.enroll(new Student("Lisa Barnes"));
 		session.enroll(new Student("Lis Barnes"));

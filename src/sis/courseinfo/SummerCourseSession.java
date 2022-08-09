@@ -4,12 +4,12 @@ import java.time.LocalDate;
 
 public class SummerCourseSession extends Session {
 	
-	public static SummerCourseSession create(String department, String number, LocalDate startDate) {
-		return new SummerCourseSession(department, number, startDate);
+	public static SummerCourseSession create(Course course, LocalDate startDate) {
+		return new SummerCourseSession(course, startDate);
 	}
 	
-	private SummerCourseSession(String department, String number, LocalDate startDate) {
-		super(department, number, startDate);
+	private SummerCourseSession(Course course, LocalDate startDate) {
+		super(course, startDate);
 	}
 	
 	@Override

@@ -18,13 +18,13 @@ public class CourseSession extends Session {
 	 * @param number the number identification of the course
 	 * @param startDate the date on which the course begins
 	 */
-	private CourseSession(String department, String number, LocalDate startDate) {
-		super(department, number, startDate);
+	private CourseSession(Course course, LocalDate startDate) {
+		super(course, startDate);
 	}
 	
-	public static CourseSession create(String department, String number, LocalDate startDate) {
+	public static CourseSession create(Course course, LocalDate startDate) {
 		incrementCount();
-		return new CourseSession(department, number, startDate);
+		return new CourseSession(course, startDate);
 	}
 
 	private static void incrementCount() {

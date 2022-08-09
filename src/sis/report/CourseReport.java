@@ -6,20 +6,20 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-import sis.courseinfo.CourseSession;
+import sis.courseinfo.Session;
 
 public class CourseReport {
 	
-	private List<CourseSession> sessions = new ArrayList<>();
+	private List<Session> sessions = new ArrayList<>();
 
-	void add(CourseSession courseSession) {
+	void add(Session courseSession) {
 		sessions.add(courseSession);
 	}
 	
 	public String text() {
 		Collections.sort(sessions);
 		StringBuilder builder = new StringBuilder();
-		for (CourseSession session : sessions) {
+		for (Session session : sessions) {
 			builder.append(session.getDepartment() + " " + session.getNumber() + NEWLINE);
 		}
 		return builder.toString();

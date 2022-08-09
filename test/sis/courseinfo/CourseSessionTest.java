@@ -4,22 +4,26 @@ import java.time.LocalDate;
 public class CourseSessionTest extends SessionTest {
 	
 	@Override
-	protected Session createSession(String department, String number, LocalDate startDate) {
-		return CourseSession.create(department, number, startDate);
+	protected Session createSession(Course course, LocalDate startDate) {
+		return CourseSession.create(course, startDate);
 	}
 	
 	public void testCourseSessionsLastSixteenWeeks() {
 		LocalDate startDate = LocalDate.of(2003, 1, 6);
-		Session session = createSession("ENGL", "200", startDate);
+		Session session = createSession(createCourse(), startDate);
 		LocalDate sixteenWeeksOut = startDate.plusWeeks(16L);
 		assertEquals(sixteenWeeksOut, session.getEndDate());
 	}
 	
+	private Course createCourse() {
+		return new Course("ENGL", "200");
+	}
+	
 	public void testCount() {
 		CourseSession.resetCount();
-		createSession("", "", LocalDate.now());
+		createSession(createCourse(), LocalDate.now());
 		assertEquals(1, CourseSession.getCount());
-		createSession("", "", LocalDate.now());
+		createSession(createCourse(), LocalDate.now());
 		assertEquals(2, CourseSession.getCount());
 		
 	}

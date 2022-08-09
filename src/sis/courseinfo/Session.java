@@ -11,8 +11,7 @@ import sis.studentinfo.Student;
 
 public abstract class Session implements Comparable<Session>, Iterable<Student> {
 
-	private String department;
-	private String number;
+	private Course course;
 	
 	private URL url;
 	
@@ -22,9 +21,8 @@ public abstract class Session implements Comparable<Session>, Iterable<Student> 
 	
 	private LocalDate startDate;
 	
-	Session(String department, String number, LocalDate startDate) {
-		this.department = department;
-		this.number = number;
+	Session(Course course, LocalDate startDate) {
+		this.course = course;
 		this.startDate = startDate;
 	}
 	
@@ -33,11 +31,11 @@ public abstract class Session implements Comparable<Session>, Iterable<Student> 
 	}
 
 	public String getDepartment() {
-		return department;
+		return course.getDepartment();
 	}
 
 	public String getNumber() {
-		return number;
+		return course.getNumber();
 	}
 
 	public int getNumberOfStudents() {

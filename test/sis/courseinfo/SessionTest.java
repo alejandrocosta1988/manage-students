@@ -19,11 +19,11 @@ public abstract class SessionTest extends TestCase {
 	@Override
 	public void setUp() {
 		startDate = LocalDate.of(2003, 1, 6);
-		session = createSession("ENGL", "101", startDate);
+		session = createSession(new Course("ENGL", "101"), startDate);
 		session.setNumberOfCredits(CREDITS);
 	}
 
-	protected abstract Session createSession(String department, String number, LocalDate startDate);
+	protected abstract Session createSession(Course course, LocalDate startDate);
 	
 	@Test
 	public void testSessionsAreInitializedWithDepartmentDataStartDateOfCourseAndNoStudents() {
@@ -52,22 +52,22 @@ public abstract class SessionTest extends TestCase {
 	@Test
 	public void testSessionsAreComparedByDepartmentNameAndThenByDepartmentNumber() {
 		final LocalDate date = LocalDate.now();
-		Session sessionA = createSession("CMSC", "101", date);
-		Session sessionB = createSession("ENGL", "101", date);
+		Session sessionA = createSession(new Course("CMSC", "101"), date);
+		Session sessionB = createSession(new Course("ENGL", "101"), date);
 		assertTrue(sessionA.compareTo(sessionB) < 0);
 		assertTrue(sessionB.compareTo(sessionA) > 0);
 		
-		Session sessionC = createSession("CMSC", "101", date);
+		Session sessionC = createSession(new Course("CMSC", "101"), date);
 		assertEquals(0, sessionA.compareTo(sessionC));
 		
-		Session sessionD = createSession("CMSC", "210", date);
+		Session sessionD = createSession(new Course("CMSC", "210"), date);
 		assertTrue(sessionC.compareTo(sessionD) < 0);
 		assertTrue(sessionD.compareTo(sessionC) > 0);
 	}
 	
 	@Test
 	public void testSessionsLastAtLeastOneWeek() {
-		Session session = createSession("DEPT", "101", LocalDate.now());
+		Session session = createSession(new Course("DEPT", "101"), LocalDate.now());
 		assertTrue(session.getSessionLength() > 0);
 	}
 	
