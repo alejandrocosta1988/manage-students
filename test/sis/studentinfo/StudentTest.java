@@ -1,7 +1,6 @@
 package sis.studentinfo;
 
 import java.util.logging.Handler;
-import java.util.logging.Logger;
 
 public class StudentTest extends junit.framework.TestCase {
 
@@ -67,10 +66,6 @@ public class StudentTest extends junit.framework.TestCase {
 			assertEquals(message, expectedException.getMessage());
 			assertEquals(message, ((TestHandler)handler).getMessage());
 		}
-	}
-	
-	private boolean wasLogged(String message, TestHandler handler) {
-		return message.equals(handler.getMessage());
 	}
 	
 	public void testStudentStatus() {

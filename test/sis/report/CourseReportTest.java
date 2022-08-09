@@ -3,7 +3,6 @@ package sis.report;
 import static sis.report.Report.NEWLINE;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
 
 import junit.framework.TestCase;
 import sis.courseinfo.CourseSession;

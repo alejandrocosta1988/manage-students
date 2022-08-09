@@ -1,9 +1,6 @@
 package sis.courseinfo;
 import java.time.LocalDate;
 
-import junit.framework.TestCase;
-import sis.studentinfo.Student;
-
 public class CourseSessionTest extends SessionTest {
 	
 	@Override

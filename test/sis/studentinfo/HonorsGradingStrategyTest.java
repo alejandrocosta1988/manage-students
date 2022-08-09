@@ -1,7 +1,5 @@
 package sis.studentinfo;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-
 import junit.framework.TestCase;
 
 public class HonorsGradingStrategyTest extends TestCase {

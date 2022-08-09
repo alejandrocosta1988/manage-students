@@ -1,8 +1,5 @@
 package sis.courseinfo;
 import java.time.LocalDate;
-import java.util.ArrayList;
-
-import sis.studentinfo.Student;
 
 /**
  * Represents a course session offered in a single-semester by an university.

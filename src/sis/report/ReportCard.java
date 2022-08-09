@@ -4,7 +4,6 @@ import java.util.EnumMap;
 import java.util.Map;
 
 import sis.studentinfo.Student;
-import sis.studentinfo.Student.Grade;
 
 public class ReportCard {
 	
