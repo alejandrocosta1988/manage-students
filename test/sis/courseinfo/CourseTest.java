@@ -31,6 +31,10 @@ public class CourseTest extends TestCase {
 		assertFalse(courseA.equals(courseB));
 	}
 	
+	public void testObjectsOfOtherTypeShouldBeDifferent() {
+		assertFalse(courseA.equals("NURS"));
+	}
+	
 	//equality contract
 	public void testReflexivity() {
 		assertEquals(courseA, courseA);
