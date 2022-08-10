@@ -57,4 +57,10 @@ public class CourseTest extends TestCase {
 	public void testComparisonToNull() {
 		assertFalse(courseC.equals(null));
 	}
+	
+	public void testHashCode() {
+		assertEquals(courseBPrime.hashCode(), courseB.hashCode());
+		assertEquals(courseC.hashCode(), courseC.hashCode()); //consistency
+	}
+	
 }
