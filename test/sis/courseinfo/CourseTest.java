@@ -63,4 +63,8 @@ public class CourseTest extends TestCase {
 		assertEquals(courseC.hashCode(), courseC.hashCode()); //consistency
 	}
 	
+	public void testToString() {
+		assertEquals("NURS 201", courseA.toString());
+	}
+	
 }

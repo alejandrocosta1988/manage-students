@@ -36,5 +36,10 @@ public class Course {
 		result = result * hashMultiplier + number.hashCode();
 		return result;
 	}
+	
+	@Override
+	public String toString() {
+		return department + " " + number;
+	}
 
 }
