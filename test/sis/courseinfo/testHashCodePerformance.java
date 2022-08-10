@@ -7,7 +7,7 @@ import junit.framework.TestCase;
 
 public class testHashCodePerformance extends TestCase {
 
-	public void testHashCodePerformance() {
+	public void testCourseHashMapPerformance() {
 		final int count = 10000;
 		long start = System.currentTimeMillis();
 		Map<Course, String> map = new HashMap<>();
