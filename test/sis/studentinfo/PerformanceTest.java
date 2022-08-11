@@ -27,4 +27,9 @@ public class PerformanceTest extends TestCase {
 		assertEquals(95d, performance.average(), TOLERANCE);
 	}
 	
+	public void testWhenThereIsNoScoreThenAverageReturnsZero() {
+		Performance performance = new Performance();
+		assertEquals(0.0, performance.average());
+	}
+	
 }
