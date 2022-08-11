@@ -102,7 +102,7 @@ public abstract class Session implements Comparable<Session>, Iterable<Student> 
 	}
 	
 	private void log(Exception e) {
-		e.printStackTrace();
+//		e.printStackTrace();
 	}
 
 	public URL getUrl() {
