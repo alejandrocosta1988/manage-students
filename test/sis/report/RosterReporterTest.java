@@ -3,6 +3,7 @@ package sis.report;
 import static sis.report.Report.NEWLINE;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.StringWriter;
@@ -46,15 +47,27 @@ public class RosterReporterTest extends TestCase {
 	
 	public void testFiledReport() throws IOException {
 		final String fileName = "testFiledReport.txt";
-		new RosterReporter(session).writeReport(fileName);
-		StringBuffer buffer = new StringBuffer();
-		String line;
-		BufferedReader reader = new BufferedReader(new FileReader(fileName));
-		while((line = reader.readLine()) != null)
-			buffer.append(String.format(line + "%n"));
-		reader.close();
+		try {
+			delete(fileName);
+			new RosterReporter(session).writeReport(fileName);
+			StringBuffer buffer = new StringBuffer();
+			String line;
+			BufferedReader reader = new BufferedReader(new FileReader(fileName));
+			while((line = reader.readLine()) != null)
+				buffer.append(String.format(line + "%n"));
+			reader.close();
 		
-		assertReportContents(buffer.toString());
+			assertReportContents(buffer.toString());
+		}
+		finally {
+			delete(fileName);
+		}
+	}
+	
+	private void delete(String fileName) {
+		File file = new File(fileName);
+		if(file.exists())
+			assertTrue("unable to delete " + fileName, file.delete());
 	}
 
 }
