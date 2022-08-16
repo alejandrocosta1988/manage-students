@@ -3,7 +3,7 @@ package sis.report;
 import java.io.IOException;
 import java.io.Writer;
 
-import sis.courseinfo.CourseSession;
+import sis.courseinfo.Session;
 import sis.studentinfo.Student;
 
 public class RosterReporter {
@@ -11,10 +11,10 @@ public class RosterReporter {
 	static final String ROSTER_REPORT_HEADER = "List of students enrolled in this course" + Report.NEWLINE;
 	static final String ROSTER_REPORT_FOOTER = "Number of students enrolled in this course: ";
 	
-	private CourseSession session;
+	private Session session;
 	private Writer writer;
 	
-	public RosterReporter(CourseSession session) {
+	public RosterReporter(Session session) {
 		this.session = session;
 	}
 	

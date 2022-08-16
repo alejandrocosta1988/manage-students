@@ -10,28 +10,35 @@ import java.time.LocalDate;
 import junit.framework.TestCase;
 import sis.courseinfo.Course;
 import sis.courseinfo.CourseSession;
+import sis.courseinfo.Session;
 import sis.studentinfo.Student;
 
 public class RosterReporterTest extends TestCase {
 	
-	public void testRosterReport() throws IOException {
-		
-		CourseSession session = CourseSession.create(new Course("ENGL", "101"), LocalDate.of(2022, 7, 15));
+	private Session session;
+	
+	@Override
+	public void setUp() {
+		session = CourseSession.create(new Course("ENGL", "101"), LocalDate.of(2022, 7, 15));
 		session.enroll(new Student("Cal Bins"));
 		session.enroll(new Student("Lisa Barnes"));
 		session.enroll(new Student("Lis Barnes"));
-		
+	}
+	
+	public void testRosterReport() throws IOException {
 		Writer writer = new StringWriter();
 		new RosterReporter(session).writeReport(writer);
-		String rosterReport = writer.toString();
-		
+		assertReportContents(writer.toString());
+	}
+	
+	private void assertReportContents(String rosterReport) {
 		assertEquals(
 				RosterReporter.ROSTER_REPORT_HEADER +
 				"Cal Bins" + NEWLINE +
 				"Lisa Barnes" + NEWLINE +
 				"Lis Barnes" + NEWLINE +
 				RosterReporter.ROSTER_REPORT_FOOTER +
-				"3" + NEWLINE,
+				session.getNumberOfStudents() + NEWLINE,
 				rosterReport);
 	}
 
