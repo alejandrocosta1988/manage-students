@@ -1,5 +1,7 @@
 package sis.report;
 
+import java.io.BufferedWriter;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.Writer;
 
@@ -38,6 +40,16 @@ public class RosterReporter {
 	
 	private void writeFooter() throws IOException {
 		writer.write(ROSTER_REPORT_FOOTER + session.getNumberOfStudents() + Report.NEWLINE);
+	}
+	
+	void writeReport(String fileName) throws IOException {
+		Writer bufferedWriter = new BufferedWriter(new FileWriter(fileName));
+		try {
+			writeReport(bufferedWriter);
+		} 
+		finally {
+			bufferedWriter.close();
+		}
 	}
 
 }
