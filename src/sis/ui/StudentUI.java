@@ -3,6 +3,8 @@ package sis.ui;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -20,6 +22,11 @@ public class StudentUI {
 	private BufferedReader reader;
 	
 	private List<Student> students = new ArrayList<>();
+	
+	public StudentUI() {
+		reader = new BufferedReader(new InputStreamReader(System.in));
+		writer = new BufferedWriter(new OutputStreamWriter(System.out));
+	}
 	
 	public StudentUI(BufferedReader reader, BufferedWriter writer) {
 		this.reader = reader;

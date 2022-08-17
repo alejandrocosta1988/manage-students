@@ -1,14 +1,11 @@
 package sis.ui;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.io.OutputStream;
-import java.io.OutputStreamWriter;
+import java.io.PrintStream;
 import java.util.List;
 
 import junit.framework.TestCase;
@@ -25,16 +22,23 @@ public class StudentUITest extends TestCase {
 		byte[] buffer = input.toString().getBytes();
 		
 		InputStream inputStream = new ByteArrayInputStream(buffer);
-		BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
-		
 		OutputStream outputStream = new ByteArrayOutputStream();
-		BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(outputStream));
 		
-		StudentUI ui = new StudentUI(reader, writer);
-		ui.run();
+		InputStream consoleIn = System.in;
+		PrintStream consoleOut = System.out;
+		System.setIn(inputStream);
+		System.setOut(new PrintStream(outputStream));
 		
-		assertEquals(expectedOutput.toString(), outputStream.toString());
-		assertStudents(ui.getAddedStudents());
+		try {
+			StudentUI ui = new StudentUI();
+			ui.run();
+			assertEquals(expectedOutput.toString(), outputStream.toString());
+			assertStudents(ui.getAddedStudents());
+		}
+		finally {
+			System.setIn(consoleIn);
+			System.setOut(consoleOut);
+		}
 	}
 	
 	private void setUp(StringBuffer expectedOutput, StringBuffer input) {
