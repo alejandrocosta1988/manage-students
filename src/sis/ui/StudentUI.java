@@ -64,5 +64,9 @@ public class StudentUI {
 	public List<Student> getAddedStudents() {
 		return students;
 	}
+	
+	public static final void main(String[] args) throws IOException {
+		new StudentUI().run();
+	}
 
 }
