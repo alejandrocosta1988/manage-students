@@ -20,7 +20,7 @@ public abstract class Session implements Comparable<Session>, Iterable<Student>,
 	
 	private int numberOfCredits = 0;
 	
-	private List<Student> students = new ArrayList<>();
+	private transient List<Student> students = new ArrayList<>(); //transient marks the list as to be skipped during serialization
 	
 	private LocalDate startDate;
 	

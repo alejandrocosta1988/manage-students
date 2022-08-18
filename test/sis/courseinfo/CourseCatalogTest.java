@@ -5,6 +5,7 @@ import java.time.LocalDate;
 import java.util.List;
 
 import junit.framework.TestCase;
+import sis.studentinfo.Student;
 
 public class CourseCatalogTest extends TestCase {
 
@@ -19,7 +20,10 @@ public class CourseCatalogTest extends TestCase {
 		course1 = new Course("a", "1");
 		course2 = new Course("a", "1");
 		session1 = CourseSession.create(course1, LocalDate.of(2005, 1, 15));
+		session1.setNumberOfCredits(3);
 		session2 = CourseSession.create(course2, LocalDate.of(2005, 1, 17));
+		session2.setNumberOfCredits(5);
+		session2.enroll(new Student("a"));
 		catalog.add(session1);
 		catalog.add(session2);
 	}
