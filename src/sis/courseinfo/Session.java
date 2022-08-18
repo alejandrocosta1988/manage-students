@@ -1,5 +1,6 @@
 package sis.courseinfo;
 
+import java.io.Serializable;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.time.LocalDate;
@@ -9,7 +10,9 @@ import java.util.List;
 
 import sis.studentinfo.Student;
 
-public abstract class Session implements Comparable<Session>, Iterable<Student> {
+public abstract class Session implements Comparable<Session>, Iterable<Student>, Serializable {
+
+	private static final long serialVersionUID = 1L;
 
 	private Course course;
 	
