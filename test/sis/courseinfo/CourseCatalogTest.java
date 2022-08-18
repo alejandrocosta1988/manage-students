@@ -34,10 +34,16 @@ public class CourseCatalogTest extends TestCase {
 		catalog.clearAll();
 		assertEquals(0, catalog.getSessions().size());
 		catalog.load(filename);
+		
 		List<Session> sessions = catalog.getSessions();
 		assertEquals(2, sessions.size());
 		assertSession(session1, sessions.get(0));
 		assertSession(session2, sessions.get(1));
+		
+		Session session = sessions.get(1);
+		assertSession(session2, session);
+		Student student = session.getAllStudents().get(0);
+		assertEquals("a", student.getLastName());
 	}
 	
 	private void assertSession(Session expected, Session retrieved) {

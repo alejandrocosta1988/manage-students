@@ -1,5 +1,8 @@
 package sis.courseinfo;
 
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -114,6 +117,24 @@ public abstract class Session implements Comparable<Session>, Iterable<Student>,
 
 	public URL getUrl() {
 		return url;
+	}
+	
+	private void writeObject(ObjectOutputStream output) throws IOException {
+		output.defaultWriteObject();
+		output.writeInt(students.size());
+		for (Student student : students)
+			output.writeObject(student.getLastName()); //the last name is used as the student identifier
+	}
+	
+	private void readObject(ObjectInputStream input) throws Exception {
+		input.defaultReadObject();
+		students = new ArrayList<Student>();
+		int size = input.readInt();
+		for (int i = 0; i < size; i++) {
+			String lastName = (String)input.readObject();
+			students.add(Student.findByLastName(lastName));
+		}
+			
 	}
 
 }

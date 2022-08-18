@@ -158,5 +158,9 @@ public class Student {
 	public String getId() {
 		return id;
 	}
+
+	public static Student findByLastName(String lastName) {
+		return new Student(lastName);
+	}
 	
 }
